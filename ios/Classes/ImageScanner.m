@@ -382,7 +382,7 @@
         if ([asset isImage]) {
             PHImageRequestOptions *options = [PHImageRequestOptions new];
             options.resizeMode = PHImageRequestOptionsResizeModeFast;
-            options.version = PHImageRequestOptionsVersion.current;
+            options.version = PHImageRequestOptionsVersionCurrent;
             [options setNetworkAccessAllowed:YES];
             [options setProgressHandler:^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
                 if (progress == 1.0) {
