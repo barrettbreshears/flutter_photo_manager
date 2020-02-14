@@ -293,6 +293,7 @@ getAssetEntityListWithGalleryId:(NSString *)id
      resultHandler:(ResultHandler *)handler {
   PHImageManager *manager = PHImageManager.defaultManager;
   PHImageRequestOptions *options = [PHImageRequestOptions new];
+  options.version = PHImageRequestOptionsVersionCurrent;
   [options setNetworkAccessAllowed:YES];
   [options setProgressHandler:^(double progress, NSError *error, BOOL *stop,
           NSDictionary *info) {
@@ -486,7 +487,7 @@ getAssetEntityListWithGalleryId:(NSString *)id
                  resultHandler:(ResultHandler *)handler {
   PHImageManager *manager = PHImageManager.defaultManager;
   PHImageRequestOptions *options = [PHImageRequestOptions new];
-
+options.version = PHImageRequestOptionsVersionCurrent;
   [options setNetworkAccessAllowed:YES];
   [options setProgressHandler:^(double progress, NSError *error, BOOL *stop,
           NSDictionary *info) {

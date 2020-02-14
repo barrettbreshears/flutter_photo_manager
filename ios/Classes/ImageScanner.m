@@ -265,11 +265,12 @@
         NSString *imgId = call.arguments;
 
         PHAsset *asset = _idAssetDict[imgId];
-
+        PHImageRequestOptions *options = [PHImageRequestOptions new];
+        options.version = PHImageRequestOptionsVersionCurrent;
         [manager requestImageForAsset:asset
                            targetSize:CGSizeMake(100, 100)
                           contentMode:PHImageContentModeAspectFill
-                              options:[PHImageRequestOptions new]
+                              options:options
                         resultHandler:^(UIImage *result, NSDictionary *info) {
 
                             BOOL downloadFinined =
@@ -301,6 +302,7 @@
         PHAsset *asset = self->_idAssetDict[imgId];
         PHImageRequestOptions *options = [PHImageRequestOptions new];
         options.resizeMode = PHImageRequestOptionsResizeModeFast;
+        options.version = PHImageRequestOptionsVersionCurrent;
         [options setNetworkAccessAllowed:YES];
         [options setProgressHandler:^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
             if (progress != 1.0) {
@@ -536,6 +538,7 @@
 
         PHImageManager *manager = PHImageManager.defaultManager;
         PHImageRequestOptions *options = [PHImageRequestOptions new];
+        options.version = PHImageRequestOptionsVersionCurrent;
         [options setNetworkAccessAllowed:YES];
         [options setProgressHandler:^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
             if (progress == 1.0) {
